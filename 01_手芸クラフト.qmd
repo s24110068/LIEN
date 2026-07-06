@@ -1,0 +1,119 @@
+---
+title: "手芸クラフト"
+
+---
+
+```{r}
+#| message: false
+# 主な手芸クラフトレシピ一覧表
+# 必要パッケージ: knitr, kableExtra
+# install.packages(c("knitr", "kableExtra"))
+
+library(knitr)
+library(kableExtra)
+
+# データ作成
+recipes <- data.frame(
+  アイテム       = c("ヘビーアーマー",
+                     "包帯", "IFAKS",
+                     "手錠", "ロックピック", "アドバンスドロックピック"),
+  カテゴリ       = c("防具",
+                     "医療", "医療",
+                     "ツール", "ツール", "ツール"),
+  材料           = c(
+    "ゴム : 12 / 布 : 35 / 鉄 : 10 / 鋼鉄 : 20",
+    "布 : 5",
+    "包帯 : 5",
+    "鉄 : 50 / 銅 : 50",
+    "鉄 : 5",
+    "ネジ : 2 / ロックピック : 1"
+  ),
+  stringsAsFactors = FALSE
+)
+
+# 表の作成
+recipes |>
+  kbl(
+    caption  = "主なクラフトレシピ一覧",
+    align    = c("l", "c", "c", "l"),
+    booktabs = TRUE
+  ) |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width        = TRUE,
+    font_size         = 13
+  ) |>
+  column_spec(1, bold = TRUE) |>
+  row_spec(0, background = "#f1f5f9", bold = TRUE) |>
+  row_spec(which(recipes$カテゴリ == "バッグ"), background = "#dbeafe") |>
+  row_spec(which(recipes$カテゴリ == "ツール"), background = "#ede9fe") |>
+  row_spec(which(recipes$カテゴリ == "防具"),   background = "#dcfce7") |>
+  row_spec(which(recipes$カテゴリ == "医療"),   background = "#fee2e2")
+```
+
+```{r}
+#| message: false
+# 犯罪用手芸クラフトレシピ一覧表
+# 必要パッケージ: knitr, kableExtra
+# install.packages(c("knitr", "kableExtra"))
+
+library(knitr)
+library(kableExtra)
+
+# データ作成
+recipes1 <- data.frame(
+  アイテム       = c("バッグ", "アーティハック", "ボブキャテルミット",
+                 "ブーステイングタブレット",　"ロックピック","アドバンスドロックピック",
+                 "電子基板", "アーティカッター", "銀行ラップトップ", "銀行スマホ",
+                 "ノートパソコン", "青色のパソコン", "赤色のパソコン",
+                 "高度な複合化", "強化デクリプター", "高度なドリル",
+                 "ユニオンC4", "C4爆弾", "テルミット"),
+  カテゴリ       = c("受注", "受注", "受注",
+                 "ブーステイング", "ブーステイング", "ブーステイング",
+                 "必要", "ツール", "ツール", "ツール",
+                 "ツール", "ツール", "ツール",
+                 "ツール", "ツール", "ツール",
+                 "ツール", "ツール", "ツール"),
+  材料           = c(
+    "布 : 180",
+    "金属くず : 30 / 銅 : 30 / 電子基板 : 1",
+    "アルミニウム : 30 / プラスチック : 20 / 電子基板 1",
+    "金属くず : 50 / 鋼鉄 : 10 / 電子基板 : 5",
+    "鉄 : 5",
+    "ネジ : 2 / ロックピック : 1",
+    "ボルト : 2 / 暗号ステック : 1 / 銅 : 10",
+    "鉄 : 30 / 銅 : 10 / 鋼鉄 : 30",
+    "アルミニウム : 10 / 電子基板 : 1 / 電池 : 2",
+    "アルミニウム : 10 / ガラス : 10 / 電子基板 1",
+    "金属くず : 20 / 鋼鉄 : 20 / 電子基板 : 1",
+    "ボルト : 3 / 電子基板 : 1 / 電池 : 1",
+    "ボルト : 6 / 電子基板 : 1 / 電池 : 2",
+    "銅 : 20 / 鋼鉄 : 20 / 電子基板 : 1",
+    "鉄 : 30 / 銅 : 30 / 電子基板 : 1",
+    "金属くず : 30 / 鉄 : 30 / 電子基板 : 1",
+    "アルミニウム : 20 / プラスチック : 20 / 電子基板 : 1",
+    "爆薬 : 5",
+    "爆薬 : 1"),
+  stringsAsFactors = FALSE
+)
+
+# 表の作成
+recipes1 |>
+  kbl(
+    caption  = "犯罪用手芸クラフトレシピ一覧",
+    align    = c("l", "c", "c", "l"),
+    booktabs = TRUE
+  ) |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width        = TRUE,
+    font_size         = 13
+  ) |>
+  column_spec(1, bold = TRUE) |>
+  row_spec(0, background = "#f1f5f9", bold = TRUE) |>
+  row_spec(which(recipes1$カテゴリ == "必要"), background = "#dbeafe") |>
+  row_spec(which(recipes1$カテゴリ == "ツール"), background = "#ede9fe") |>
+  row_spec(which(recipes1$カテゴリ == "ブーステイング"),   background = "#dcfce7") |>
+  row_spec(which(recipes1$カテゴリ == "受注"),   background = "#fee2e2")
+```
+

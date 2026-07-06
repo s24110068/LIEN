@@ -1,0 +1,74 @@
+---
+title: "武器クラフト"
+---
+
+
+
+```{r}
+#| message: false
+# 主な武器クラフトレシピ一覧表
+# 必要パッケージ: knitr, kableExtra
+# install.packages(c("knitr", "kableExtra"))
+
+library(knitr)
+library(kableExtra)
+
+# データ作成
+recipes2 <- data.frame(
+  アイテム       = c("弾薬全種", "アタッチメント全種","グレネード",
+                 "Micro SMG", "Special Carbine MK2", "Special Carbine",
+                 "Bullpup Rifle MK2", "Carbine Rifle MK2",
+                 "Pistol", "Heavy Pistol",
+                 "SMG", "Mini SMG", "Assault SMG", "Combat PDW",
+                 "Bullpup Rifle", "Assault Rifle", "Assault Rifle MK2",
+                 "Advanced Rifle", "Military Rifle"),
+  カテゴリ       = c("弾", "アタッチメント","武器",
+                 "よく使う武器", "よく使う武器", "よく使う武器",
+                 "よく使う武器", "よく使う武器",
+                 "武器", "武器",
+                 "武器", "武器", "武器", "武器",
+                 "武器", "武器", "武器",
+                 "武器", "武器"),
+  材料           = c(
+    "金属くず : 10 / 鉄 : 5 / 銅 : 5",
+    "金属くず : 20 / 銅 : 20 / 鋼鉄 : 20",
+    "金属くず : 20 / 鉄 : 5 / 銅 : 12",
+    "金属くず : 50 / 鉄 : 90 / 鋼鉄 : 50",
+    "金属くず : 120 / 鉄 : 190 / 銅 : 50 / 鋼鉄 : 120",
+    "金属くず : 120 / 鉄 : 240 / 銅 : 50 / 鋼鉄 : 150",
+    "アルミニウム : 50 / 金属くず : 100 / 鉄 : 190 / 鋼鉄 : 100",
+    "アルミニウム : 50 / 金属くず : 80 / 鉄 : 210 / 鋼鉄 : 130",
+    "金属くず : 20 / 鉄 : 25",
+    "鉄 : 25 / 鋼鉄 : 20",
+    "金属くず : 30 / 鉄 : 70 / 鋼鉄 : 50",
+    "金属くず : 20 / 鉄 : 40 / 鋼鉄 : 20",
+    "金属くず : 60 / 鉄 : 130 / 鋼鉄 : 70",
+    "金属くず : 40 / 鉄 : 60 / 鋼鉄 : 25",
+    "金属くず : 100 / 鉄 : 150 / 銅 : 30 / 鋼鉄 : 90",
+    "プラスチック : 5 / 金属くず : 80 / 鉄 : 150 / 鋼鉄 : 70",
+    "プラスチック : 15 / 金属くず : 100 / 鉄 : 150 / 鋼鉄 : 90",
+    "アルミニウム : 30 / 金属くず : 100 / 鉄 : 180 / 鋼鉄 : 90",
+    "金属くず : 150 / 鉄 : 150 / 銅 : 50 / 鋼鉄 : 150"),
+  stringsAsFactors = FALSE
+)
+
+# 表の作成
+recipes2 |>
+  kbl(
+    caption  = "武器クラフトレシピ一覧",
+    align    = c("l", "c", "c", "l"),
+    booktabs = TRUE
+  ) |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width        = TRUE,
+    font_size         = 13
+  ) |>
+  column_spec(1, bold = TRUE) |>
+  row_spec(0, background = "#f1f5f9", bold = TRUE) |>
+  row_spec(which(recipes2$カテゴリ == "弾"), background = "#dbeafe") |>
+  row_spec(which(recipes2$カテゴリ == "アタッチメント"), background = "#ede9fe") |>
+  row_spec(which(recipes2$カテゴリ == "武器"),   background = "#dcfce7") |>
+  row_spec(which(recipes2$カテゴリ == "よく使う武器"),   background = "#fee2e2")
+```
+

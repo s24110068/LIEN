@@ -6,17 +6,14 @@ project:
     - css/
 
 book:
-  title: "東京都内シェアサイクル利用数の予測モデル構築に関する研究"
-  author: "東京国際大学 商学部 <br>データサイエンスコース<br>東国 花子"
-  date: today
+  title: "情報関連"
   chapters:
     - index.qmd
-    - 01_研究概要.qmd
-    - 02_データ.qmd
-    - 03_分析手法.qmd
-    - 04_結果と考察.qmd
-    - 05_まとめ.qmd
-
+    - 01_手芸クラフト.qmd
+    - 02_武器クラフト.qmd
+    - 03_受注場所.qmd
+    - 04_組織関連.qmd
+    
 bibliography: ref/references.bib
 
 format:
